@@ -1,3 +1,3 @@
-angular.module('jobsite').controller('mainCtrl', function($scope){
-  $scope.test = "hey hey"
+angular.module('jobSite').controller('mainCtrl', function($scope){
+
 })

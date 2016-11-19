@@ -1,1 +1,1 @@
-angular.module('jobsite', [])
+angular.module('jobSite', [])

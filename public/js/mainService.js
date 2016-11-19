@@ -1,3 +1,3 @@
-angular.module('jobsite').service('mainService', function($http){
-  
+angular.module('jobSite').service('mainService', function($http){
+
 })
