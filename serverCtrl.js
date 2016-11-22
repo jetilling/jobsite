@@ -1,5 +1,7 @@
-var app = require('./server');
-var db = app.get('db');
+var app = require('./server'),
+    db = app.get('db'),
+    config = require('./config.json'),
+    moment = require('moment')
 
 function createJWT(user) {
   var payload = {
