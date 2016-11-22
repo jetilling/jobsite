@@ -1,4 +1,4 @@
-angular.module('jobSite', ['ui.router'])
+angular.module('jobSite', ['ui.router', 'satellizer'])
 .config(function($stateProvider, $urlRouterProvider, $authProvider){
   $urlRouterProvider.otherwise('/')
 
