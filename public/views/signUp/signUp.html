@@ -1,0 +1,10 @@
+<body ng-controller="signUpCtrl">
+  Sign Up
+
+  <input type="text" name="name" placeholder="Name" ng-model="name">
+  <input type="password" name="name" placeholder="Password" ng-model="password">
+  <input type="password" name="name" placeholder="Confirm Password" ng-model="confirmPassword">
+  <input type="email" name="name" placeholder="Email" ng-model="email">
+  <!-- birthday goes here -->
+  <button type="button" name="button" ng-click="create(name, password, confirmPassword, email)">Create</button>
+</body>

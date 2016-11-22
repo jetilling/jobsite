@@ -1,6 +1,27 @@
 angular.module('jobSite', ['ui.router'])
-.config(function($stateProvider, $urlRouterProvider){
+.config(function($stateProvider, $urlRouterProvider, $authProvider){
   $urlRouterProvider.otherwise('/')
+
+  var skipIfLoggedIn = ['$q', '$location', '$auth', function($q, $location, $auth) {
+  var deferred = $q.defer();
+  if ($auth.isAuthenticated()) {
+    $location.path('/dashboard')
+  } else {
+    console.log('hey');
+    deferred.resolve();
+  }
+  return deferred.promise;
+}];
+
+  var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
+      var deferred = $q.defer();
+      if ($auth.isAuthenticated()) {
+        deferred.resolve();
+      } else {
+        $location.path('/login');
+      }
+      return deferred.promise;
+    }];
 
   $stateProvider
   .state('landing', {
@@ -22,7 +43,7 @@ angular.module('jobSite', ['ui.router'])
         }
   })
   .state('signUp', {
-        url: '/',
+        url: '/signUp',
           views: {
             "main@": {
               controller: 'signUpCtrl',
@@ -30,4 +51,16 @@ angular.module('jobSite', ['ui.router'])
           }
         }
   })
+  .state('profile', {
+        url: '/profile',
+          views: {
+            "main@": {
+              controller: 'profileCtrl',
+              templateUrl: './views/profile/profile.html'
+          }
+        }
+  })
+
+  $authProvider.loginUrl = '/auth/login';
+  $authProvider.signupUrl = '/auth/signup';
 })

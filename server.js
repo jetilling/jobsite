@@ -3,6 +3,7 @@ var express = require('express'),
     cors = require('cors'),
     jwt = require('jwt-simple'),
     massive = require('massive'),
+    moment = require('moment'),
     config = require('./config.json'),
     serverCtrl = require('./serverCtrl.js'),
     string = config.connectionString;
