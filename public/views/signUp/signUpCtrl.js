@@ -1,19 +1,44 @@
-angular.module('jobSite').controller('signUpCtrl', function($scope, mainService, $auth){
-  $scope.create = function(name, password, confirmPassword, email){
+angular.module('jobSite').controller('signUpCtrl', function($scope, mainService, $auth, $state){
+
+  $scope.mismatchedPasswords = false;
+  $scope.existingEmail = false;
+
+  $scope.create = function(first_name, last_name, password, confirmPassword, email){
     if (password === confirmPassword){
       $auth.signup({
-        email: email,
+        first_name: first_name,
+        last_name: last_name,
         password: password,
-        name: name
+        email: email
       }).then(function (response) {
         console.log("signUpCtrl:", response);
-        $state.go('confirmLogin');
+        setTimeout(function() {
+          $scope.login(email, password);
+        }, 500);
       }).catch(function (response) {
         console.log("signUpCtrl Error:", response);
-        // window.alert('Error: Register failed');
+        $scope.existingEmail = true
       });
     }
+    else $scope.mismatchedPasswords = true
   }
+
+  $scope.login = function(email, password) {
+  console.log(email, password);
+  $auth.login({
+    email: email,
+    password: password,
+  }).then(function (response) {
+    console.log("signUpCtrl:", response);
+    if(response.status === 200){
+      $auth.setToken(response)
+      $state.go('profile');
+    }
+  }).catch(function (response) {
+    console.log("signUpCtrl Error:", response);
+    // window.alert('Error: Register failed');
+  });
+};
 
 
 })

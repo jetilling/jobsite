@@ -1,3 +1,6 @@
 <body ng-controller="loginCtrl">
   login
+  <input type="text" name="name" value="" placeholder="Email" ng-model="email">
+  <input type="password" name="name" value="" placeholder="Password" ng-model="password">
+  <button type="button" name="button" ng-click="logIn(email, password)">Log in</button>
 </body>

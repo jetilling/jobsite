@@ -60,6 +60,15 @@ angular.module('jobSite', ['ui.router', 'satellizer'])
           }
         }
   })
+  .state('profileContents.purchaseTokens', {
+        url: '/purchaseTokens',
+          views: {
+            "profileContents@profileContents": {
+              controller: 'purchaseTokensCtrl',
+              templateUrl: './views/purchaseTokens/purchaseTokens.html'
+          }
+        }
+  })
 
   $authProvider.loginUrl = '/auth/login';
   $authProvider.signupUrl = '/auth/signup';

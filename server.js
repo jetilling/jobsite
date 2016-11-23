@@ -15,7 +15,8 @@ var corsOptions = {
 }
 
 var app = module.exports = express();
-var serverCtrl = require('./serverCtrl.js');
+app.set('db', db);
+var authCtrl = require('./controllers/authCtrl.js');
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
@@ -42,9 +43,9 @@ function ensureAuthenticated(req, res, next) {
 }
 
 //----Endpoints----//
-app.get('/api/me', ensureAuthenticated, serverCtrl.getMe);
-app.post('/auth/login', serverCtrl.authLogin);
-app.post('/auth/signup', serverCtrl.authSignUp);
+app.get('/api/me', ensureAuthenticated, authCtrl.getMe);
+app.post('/auth/login', authCtrl.login);
+app.post('/auth/signup', authCtrl.signUp);
 
 var port = config.port
 app.listen(port, function(){
