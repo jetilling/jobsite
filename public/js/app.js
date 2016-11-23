@@ -60,10 +60,10 @@ angular.module('jobSite', ['ui.router', 'satellizer'])
           }
         }
   })
-  .state('profileContents.purchaseTokens', {
+  .state('profile.purchaseTokens', {
         url: '/purchaseTokens',
           views: {
-            "profileContents@profileContents": {
+            "profile@profile": {
               controller: 'purchaseTokensCtrl',
               templateUrl: './views/purchaseTokens/purchaseTokens.html'
           }
