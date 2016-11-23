@@ -1,4 +1,4 @@
-angular.module('jobSite').controller("profileCtrl", function($scope, $state, $auth){
+angular.module('jobSite').controller("profileCtrl", function($scope, $state, $auth, mainService){
 
   $scope.logout = function(){
     $auth.logout()
@@ -7,4 +7,5 @@ angular.module('jobSite').controller("profileCtrl", function($scope, $state, $au
           $state.go('landing');
     });
   }
+
 })
