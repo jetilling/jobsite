@@ -1,10 +1,17 @@
 <body ng-controller="signUpCtrl">
   Sign Up
 
-  <input type="text" name="name" placeholder="Name" ng-model="name">
+  <input type="text" name="name" placeholder="First Name" ng-model="first_name">
+  <input type="text" name="name" value="" placeholder="Last Name" ng-model="last_name">
   <input type="password" name="name" placeholder="Password" ng-model="password">
   <input type="password" name="name" placeholder="Confirm Password" ng-model="confirmPassword">
+  <div class="mismatchedPasswords" ng-show="mismatchedPasswords">
+    The Passwords do not match.
+  </div>
   <input type="email" name="name" placeholder="Email" ng-model="email">
+  <div class="existingEmail" ng-show="existingEmail">
+    An account with that email already exists
+  </div>
   <!-- birthday goes here -->
-  <button type="button" name="button" ng-click="create(name, password, confirmPassword, email)">Create</button>
+  <button type="button" name="button" ng-click="create(first_name, last_name, password, confirmPassword, email)">Create</button>
 </body>
