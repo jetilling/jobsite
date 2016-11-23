@@ -1,0 +1,11 @@
+<body ng-controller="employeeSideCtrl">
+  post a job.
+  <button type="button" name="button" ui-sref="profile">Back to profile</button>
+
+  <input type="text" name="name" value="" placeholder="Job Title" ng-model='title'>
+  <textarea name="name" rows="4" cols="40" placeholder="Quick Job Description" ng-model="description"></textarea>
+  <input type="text" name="name" value="" placeholder="Starting Bid (Round to nearest whole dollar)" ng-model="startingBid">
+  <input type="text" name="name" value="" placeholder="Job Keywords" ng-model="keywords">
+  <input type="text" name="name" value="" placeholder="Number of Hours Job Will Stay Posted" ng-model="hours">
+  <button type="button" name="button" ng-click="createJob(title, description, startingBid, keywords, hours)">Post Job</button>
+</body>

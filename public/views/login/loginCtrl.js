@@ -3,7 +3,6 @@ angular.module('jobSite').controller("loginCtrl", function($scope, $auth, $state
 
 //login function - response.data.token accesses token.
   $scope.logIn = function(email, password) {
-      console.log(email, password);
     $auth.login({
       email: email,
       password: password,
