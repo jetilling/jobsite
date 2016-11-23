@@ -1,6 +1,6 @@
 <body ng-controller="profileCtrl">
   profile
-  <button type="button" name="button">Purchase Tokens</button>
+  <button type="button" name="button" ui-sref="profileContents.purchaseTokens">Purchase Tokens</button>
   <button type="button" name="button" ng-click="logout()">Log out</button>
   <div ui-view="profileContents"></div>
 </body>
