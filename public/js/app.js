@@ -51,6 +51,24 @@ angular.module('jobSite', ['ui.router', 'satellizer'])
           }
         }
   })
+  .state('employerSide', {
+        url: '/employerSide',
+          views: {
+            "main@": {
+              controller: 'employerSideCtrl',
+              templateUrl: './views/employerSide/employerSide.html'
+          }
+        }
+  })
+  .state('employeeSide', {
+        url: '/employeeSide',
+          views: {
+            "main@": {
+              controller: 'employeeSideCtrl',
+              templateUrl: './views/employeeSide/employeeSide.html'
+          }
+        }
+  })
   .state('profile', {
         url: '/profile',
           views: {
