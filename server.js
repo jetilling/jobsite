@@ -46,9 +46,12 @@ function ensureAuthenticated(req, res, next) {
 }
 
 //----Endpoints----//
+//----authCtrl----//
 app.get('/api/me', ensureAuthenticated, authCtrl.getMe);
 app.post('/auth/login', authCtrl.login);
 app.post('/auth/signup', authCtrl.signUp);
+//----jobsCtrl----//
+app.get('/api/userData/:id', ensureAuthenticated, jobsCtrl.userData);
 app.post('/api/createJob', ensureAuthenticated, jobsCtrl.createJob);
 
 var port = config.port

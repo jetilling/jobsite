@@ -8,7 +8,7 @@ angular.module('jobSite').service('mainService', function($http){
       method: 'GET',
       url: '/api/me'
     }).then(function(response){
-
+      console.log(userId)
       userId = response.data
     })
   }()
@@ -25,5 +25,15 @@ angular.module('jobSite').service('mainService', function($http){
       console.log(response);
     })
   }
+
+  this.userInfo = function(userId){
+    console.log("inside function:", userId)
+    return $http({
+      method: 'GET',
+      url: '/api/userData/' + userId,
+    }).then(function(response){
+      console.log(response)
+    })
+  }()
 
 })
