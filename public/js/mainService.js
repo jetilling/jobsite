@@ -1,22 +1,31 @@
 angular.module('jobSite').service('mainService', function($http){
 
   var userData;
-  var userId;
+  var userInfo = function(userId){
+    return $http({
+      method: 'GET',
+      url: '/api/userData/' + userId,
+    }).then(function(response){
+      userData = response.data
+    })
+  }
 
   this.userData = function(){
     return $http({
       method: 'GET',
       url: '/api/me'
     }).then(function(response){
-      userId = response.data
-      console.log(userId)
+      var userId = response.data
+      userInfo(userId)
     })
   }()
+
 
 
   this.createJob = function(title, description, startingBid, keywords, hours){
     var keyword = keywords.split(' ');
     var bid = Math.round(startingBid);
+    console.log(userData)
     return $http({
       method: 'POST',
       url: '/api/createJob',
@@ -26,15 +35,5 @@ angular.module('jobSite').service('mainService', function($http){
       console.log(response);
     })
   }
-
-  this.userInfo = function(userId){
-    console.log("inside function:", userId)
-    return $http({
-      method: 'GET',
-      url: '/api/userData/' + userId,
-    }).then(function(response){
-      console.log(response)
-    })
-  }()
 
 })
