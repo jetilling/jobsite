@@ -30,11 +30,6 @@ angular.module('jobSite').service('mainService', function($http){
       url: '/api/createJob',
       data: {userId: user[0].id, title: title, description: description, bid: bid, keyword: keyword, hours: hours}
     })
-    .then(function(response){
-      if (response.status === 200){
-
-      }
-    })
   }
 
 })
