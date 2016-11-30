@@ -1,12 +1,12 @@
 angular.module('jobSite').service('mainService', function($http){
 
-  var userData;
+  var user;
   var userInfo = function(userId){
     return $http({
       method: 'GET',
       url: '/api/userData/' + userId,
     }).then(function(response){
-      userData = response.data
+      user = response.data
     })
   }
 
@@ -25,14 +25,15 @@ angular.module('jobSite').service('mainService', function($http){
   this.createJob = function(title, description, startingBid, keywords, hours){
     var keyword = keywords.split(' ');
     var bid = Math.round(startingBid);
-    console.log(userData)
     return $http({
       method: 'POST',
       url: '/api/createJob',
-      data: {userId: userId, title: title, description: description, bid: bid, keyword: keyword, hours: hours}
+      data: {userId: user[0].id, title: title, description: description, bid: bid, keyword: keyword, hours: hours}
     })
     .then(function(response){
-      console.log(response);
+      if (response.status === 200){
+
+      }
     })
   }
 
