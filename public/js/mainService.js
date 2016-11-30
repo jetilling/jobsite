@@ -8,10 +8,11 @@ angular.module('jobSite').service('mainService', function($http){
       method: 'GET',
       url: '/api/me'
     }).then(function(response){
-      console.log(userId)
       userId = response.data
+      console.log(userId)
     })
   }()
+
 
   this.createJob = function(title, description, startingBid, keywords, hours){
     var keyword = keywords.split(' ');
