@@ -24,7 +24,6 @@ angular.module('jobSite').controller('signUpCtrl', function($scope, mainService,
   }
 
   $scope.login = function(email, password) {
-  console.log(email, password);
   $auth.login({
     email: email,
     password: password,
@@ -36,7 +35,6 @@ angular.module('jobSite').controller('signUpCtrl', function($scope, mainService,
     }
   }).catch(function (response) {
     console.log("signUpCtrl Error:", response);
-    // window.alert('Error: Register failed');
   });
 };
 

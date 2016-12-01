@@ -37,7 +37,7 @@ angular.module('jobSite').service('mainService', function($http){
       methed: 'GET',
       url: '/api/myPostings/' + user[0].id
     }).then(function(response){
-      console.log(response)
+      // console.log(response)
     })
   }
 

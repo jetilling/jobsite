@@ -38,7 +38,7 @@ module.exports = {
                 message: 'Invalid email and/or password'
               })
             }
-            db.get_User_Password([user.id], function(err, candidatePassword){
+            // db.get_user_password([user.id], function(err, candidatePassword){
               db.comparePassword = function(candidatePassword, password, cb) {
                 bcrypt.compare(candidatePassword, req.body.password, function(err, isMatch) {
                   cb(err, isMatch);
@@ -48,7 +48,7 @@ module.exports = {
                 token: createJWT(user),
                 user: getSafeUser(user)
               })
-            })
+            // })
         })
   },
 
@@ -62,7 +62,7 @@ module.exports = {
           if (err) { return next(err); }
           bcrypt.hash(req.body.password, salt, null, function(err, hash) {
             if (err) { return next(err); }
-            req.body.encrypted = req.body.password = hash;
+            req.body.encrypted = req.body.password = hash; // delete this and make req.body.encrypted just hash.
             db.create_user([req.body.first_name, req.body.last_name, req.body.encrypted, req.body.email], function(err, users){
               db.users.findOne({email: req.body.email}, function(err, user){
                 res.send({
