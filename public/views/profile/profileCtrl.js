@@ -8,4 +8,11 @@ angular.module('jobSite').controller("profileCtrl", function($scope, $state, $au
     });
   }
 
+  $scope.myPostings = function(){
+    mainService.myPostings()
+  }()
+
+  mainService.myPostings()
+
+
 })

@@ -1,1 +1,3 @@
-SELECT password FROM users WHERE id = $1;
+SELECT password
+FROM users
+WHERE id = $1;

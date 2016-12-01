@@ -32,4 +32,13 @@ angular.module('jobSite').service('mainService', function($http){
     })
   }
 
+  this.myPostings = function(){
+    return $http({
+      methed: 'GET',
+      url: '/api/myPostings/' + user[0].id
+    }).then(function(response){
+      console.log(response)
+    })
+  }
+
 })
