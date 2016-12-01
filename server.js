@@ -19,6 +19,7 @@ app.set('db', db);
 
 //----Server Controllers----//
 var authCtrl = require('./controllers/authCtrl.js'),
+    profileCtrl = require('./controllers/profileCtrl.js'),
     jobsCtrl = require('./controllers/jobsCtrl.js');
 
 app.use(bodyParser.json());
@@ -51,8 +52,10 @@ app.get('/api/me', ensureAuthenticated, authCtrl.getMe);
 app.post('/auth/login', authCtrl.login);
 app.post('/auth/signup', authCtrl.signUp);
 //----jobsCtrl----//
-app.get('/api/userData/:id', ensureAuthenticated, jobsCtrl.userData);
 app.post('/api/createJob', ensureAuthenticated, jobsCtrl.createJob);
+//----profileCtrl----//
+app.get('/api/userData/:id', ensureAuthenticated, profileCtrl.userData);
+app.get('/api/myPostings/:id', ensureAuthenticated, profileCtrl.myPostings);
 
 var port = config.port
 app.listen(port, function(){
