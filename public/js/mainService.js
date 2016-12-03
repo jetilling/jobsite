@@ -32,6 +32,16 @@ angular.module('jobSite').service('mainService', function($http){
     })
   }
 
+  this.createJobB = function(title, description, startingBid, keywords, hours){
+    var keyword = keywords.split(' ');
+    var bid = Math.round(startingBid);
+    return $http({
+      method: 'POST',
+      url: '/api/createJobB',
+      data: {userId: user[0].id, title: title, description: description, bid: bid, keyword: keyword, hours: hours}
+    })
+  }
+
   this.myPostings = function(){
     return $http({
       methed: 'GET',
