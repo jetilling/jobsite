@@ -53,6 +53,7 @@ app.post('/auth/login', authCtrl.login);
 app.post('/auth/signup', authCtrl.signUp);
 //----jobsCtrl----//
 app.post('/api/createJob', ensureAuthenticated, jobsCtrl.createJob);
+app.post('/api/createJobB', ensureAuthenticated, jobsCtrl.createJobB);
 //----profileCtrl----//
 app.get('/api/userData/:id', ensureAuthenticated, profileCtrl.userData);
 app.get('/api/myPostings/:id', ensureAuthenticated, profileCtrl.myPostings);
