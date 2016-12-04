@@ -13,6 +13,7 @@ angular.module('jobSite').controller('signUpCtrl', function($scope, mainService,
       }).then(function (response) {
         console.log("signUpCtrl:", response);
         $auth.setToken(response);
+        mainService.userData();
         $state.go('profile');
       }).catch(function (response) {
         console.log("signUpCtrl Error:", response);

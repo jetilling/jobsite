@@ -17,5 +17,5 @@ angular.module('jobSite').controller("profileCtrl", function($scope, $state, $au
 
   // mainService.myPostings()
 
-
+  console.log(mainService.userPostings)
 })
