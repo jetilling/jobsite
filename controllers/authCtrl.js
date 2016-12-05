@@ -38,7 +38,7 @@ module.exports = {
                 message: 'Invalid email and/or password'
               })
             }
-            db.get_user_password([user.id], function(err, candidatePassword){
+            db.get_User_Password([user.id], function(err, candidatePassword){
               db.comparePassword = function(candidatePassword, password, cb) {
                 bcrypt.compare(candidatePassword, req.body.password, function(err, isMatch) {
                   cb(err, isMatch);

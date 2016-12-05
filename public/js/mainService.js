@@ -18,18 +18,20 @@ angular.module('jobSite').service('mainService', function($http){
     }).then(function(response){
       console.log(response.data)
       userPostings.push(response.data);
+      return userPostings
     })
   }
 
+  console.log(userPostings)
+
   this.userData = function(){
-    console.log('ran')
     return $http({
       method: 'GET',
       url: '/api/me'
     }).then(function(response){
       var userId = response.data
       userInfo(userId)
-      myPostings(userId)
+      return myPostings(userId)
     })
   }
 
