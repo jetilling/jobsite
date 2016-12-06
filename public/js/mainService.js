@@ -16,13 +16,10 @@ angular.module('jobSite').service('mainService', function($http){
       methed: 'GET',
       url: '/api/myPostings/' + userId
     }).then(function(response){
-      console.log(response.data)
       userPostings.push(response.data);
       return userPostings
     })
   }
-
-  console.log(userPostings)
 
   this.userData = function(){
     return $http({

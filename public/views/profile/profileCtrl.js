@@ -19,7 +19,6 @@ angular.module('jobSite').controller("profileCtrl", function($scope, $state, $au
 //
 mainService.userData()
 .then(function(response){
-  console.log(response[0])
   $scope.postings = response[0];
 });
 
