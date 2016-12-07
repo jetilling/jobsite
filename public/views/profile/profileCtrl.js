@@ -1,5 +1,7 @@
 angular.module('jobSite').controller("profileCtrl", function($scope, $state, $auth, mainService){
 
+  var posting;
+
   $scope.logout = function(){
     $auth.logout()
         .then(function() {
@@ -19,8 +21,12 @@ angular.module('jobSite').controller("profileCtrl", function($scope, $state, $au
 //
 mainService.userData()
 .then(function(response){
+  posting = response[0];
   $scope.postings = response[0];
 });
 
+$scope.edit = function(postingId){
+  console.log(postingId)
+}
 
 })

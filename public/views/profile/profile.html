@@ -10,7 +10,7 @@
     <button type="button" name="button" ui-sref="employeeSide">Looking for work?</button>
   </section>
   <section>
-    <div class="myPostings" ng-repeat="post in postings">
+    <div class="myPostings" ng-repeat="post in postings" ng-click="edit(post.id)">
       Title: {{post.title}} <br>
       Description: {{post.description}} <br>
       Key Words: {{post.key_words}} <br>
