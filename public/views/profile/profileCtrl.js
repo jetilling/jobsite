@@ -1,6 +1,7 @@
 angular.module('jobSite').controller("profileCtrl", function($scope, $state, $auth, mainService){
 
   var posting;
+  $scope.editModal = false
 
   $scope.logout = function(){
     $auth.logout()
