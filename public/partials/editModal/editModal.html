@@ -1,9 +1,11 @@
 <div class="window" ng-click="close()">
 </div>
 <div class="modal">
-  Title: {{editPost.title}} <br>
-  Description: {{editPost.description}} <br>
-  Key Words: {{editPost.key_words}} <br>
-  Starting Bid: {{editPost.starting_bid}} <br>
-  {{editPost.hours}}
+  Edit your listing here!<br>
+  <br>
+  <div editable-text="editPost.title">{{editPost.title}}</div> <br>
+  <div editable-text="editPost.description">{{editPost.description}}</div> <br>
+  <div editable-text="editPost.key_words">{{editPost.key_words}}</div><br>
+  <div editable-text="editPost.starting_bid">{{editPost.starting_bid}}</div><br>
+  <div editable-text="editPost.hours">{{editPost.hours}}</div><br>
 </div>
