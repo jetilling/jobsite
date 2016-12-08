@@ -1,10 +1,12 @@
 angular.module('jobSite').directive('editModal', function(){
   return {
     restrict: 'AE',
-    templateUrl: './editModal.html',
+    templateUrl: './partials/editModal/editModal.html',
 
     controller: function($scope, mainService, $timeout){
-
+      $scope.close = function() {
+        $scope.editModal = false;
+      }
     }
   }
 });
