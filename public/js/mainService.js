@@ -1,7 +1,6 @@
 angular.module('jobSite').service('mainService', function($http){
 
   var user;
-  var userPostings = [];
   var userInfo = function(userId){
     return $http({
       method: 'GET',
@@ -16,8 +15,7 @@ angular.module('jobSite').service('mainService', function($http){
       methed: 'GET',
       url: '/api/myPostings/' + userId
     }).then(function(response){
-      userPostings.push(response.data);
-      return userPostings
+      return response.data;
     })
   }
 

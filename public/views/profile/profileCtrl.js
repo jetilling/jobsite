@@ -1,7 +1,7 @@
 angular.module('jobSite').controller("profileCtrl", function($scope, $state, $auth, mainService){
 
   var posting;
-  $scope.editModal = false
+  $scope.editModal = false;
 
   $scope.logout = function(){
     $auth.logout()
@@ -11,23 +11,19 @@ angular.module('jobSite').controller("profileCtrl", function($scope, $state, $au
     });
   }
 
-  // $scope.myPostings = function(){
-  //   mainService.myPostings()
-  //   .then(function(response){
-  //     console.log(response)
-  //   })
-  // }()
-
-  // mainService.myPostings()
-//
 mainService.userData()
 .then(function(response){
-  posting = response[0];
-  $scope.postings = response[0];
+  posting = response;
+  $scope.postings = response;
 });
 
 $scope.edit = function(postingId){
-  console.log(postingId)
+  $scope.editModal = true;
+  $scope.postings.forEach(function(item){
+    if (item.id === postingId){
+      $scope.editPost = item
+    }
+  })
 }
 
 })

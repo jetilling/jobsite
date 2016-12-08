@@ -1,0 +1,19 @@
+.window {
+  width: 100vw;
+  height: 90vh;
+  z-index: 100;
+  background: lightblue;
+  /*opacity: .5;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.modal {
+  width: 50vw;
+  height: 50vh;
+  z-index: 101;
+  background: white;
+  /*opacity: 1;*/
+}
